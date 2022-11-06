@@ -16,7 +16,9 @@ public class TodosTests {
         String data = "Shopping";
         list.add(data);
         todos.addTask(data);
-        String result = Arrays.toString(list.toArray());
+        String result = Arrays.toString(list.toArray())
+                .replace("[", "")
+                .replace("]", "");
         Assertions.assertEquals(result, todos.getAllTasks());
     }
     @Test
@@ -29,7 +31,9 @@ public class TodosTests {
         todos.addTask(data);
         list.remove(data);
         todos.removeTask(data);
-        String result = Arrays.toString(list.toArray());
+        String result = Arrays.toString(list.toArray())
+                .replace("[", "")
+                .replace("]", "");
         Assertions.assertEquals(result, todos.getAllTasks());
     }
 
@@ -40,7 +44,7 @@ public class TodosTests {
         todos.addTask("Shopping");
         todos.addTask("Cleaning");
         todos.addTask("Reading");
-        String result = "[Cleaning, Reading, Shopping]";
+        String result = "Cleaning Reading Shopping";
         Assertions.assertEquals(result, todos.getAllTasks());
     }
 
@@ -56,7 +60,7 @@ public class TodosTests {
         todos.addTask("6");
         todos.addTask("7");
         todos.addTask("8");
-        String dataResult = "[1, 2, 3, 4, 5, 6, 7]";
+        String dataResult = "1 2 3 4 5 6 7";
         Assertions.assertEquals(dataResult, todos.getAllTasks());
     }
 
