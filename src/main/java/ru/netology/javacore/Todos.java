@@ -1,13 +1,14 @@
 package ru.netology.javacore;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Todos {
-    private List<String> tasks = new ArrayList<>();
+
+    private final int LIST_SIZE = 7;
+    private Set<String> tasks = new TreeSet<>();
 
     public void addTask(String task) {
-        if (tasks.size() < 7) {
+        if (tasks.size() < LIST_SIZE) {
             tasks.add(task);
         } else {
             tasks.add(task);
@@ -20,9 +21,9 @@ public class Todos {
     }
 
     public String getAllTasks() {
-        List<String> outTasks = tasks.stream()
-                .sorted()
-                .collect(Collectors.toList());
-        return Arrays.toString(outTasks.toArray());
+        return Arrays.toString(tasks.toArray())
+                .replace("[", "")
+                .replace("]", "")
+                .replace(",", "");
     }
 }
