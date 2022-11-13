@@ -18,6 +18,6 @@ public class Task {
 
     @Override
     public String toString() {
-        return "fuck" + task;
+        return task;
     }
 }
