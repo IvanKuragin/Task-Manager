@@ -1,6 +1,7 @@
 package ru.netology.javacore;
 
 public class Task {
+
     private String type;
     private String task;
 
@@ -13,5 +14,10 @@ public class Task {
     }
     public String getTask() {
         return task;
+    }
+
+    @Override
+    public String toString() {
+        return "fuck" + task;
     }
 }

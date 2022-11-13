@@ -1,6 +1,7 @@
 package ru.netology.javacore;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Todos {
 
@@ -21,9 +22,8 @@ public class Todos {
     }
 
     public String getAllTasks() {
-        return Arrays.toString(tasks.toArray())
-                .replace("[", "")
-                .replace("]", "")
-                .replace(",", "");
+        return tasks.stream()
+                .map(Object::toString)
+                .collect(Collectors.joining(" "));
     }
 }
